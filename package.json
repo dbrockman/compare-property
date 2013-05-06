@@ -1,10 +1,16 @@
 {
   "name": "compare-property",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Array sort compare util",
-  "author": "David Brockman Smoliansky #dbrckmn",
+  "author": "David Brockman Smoliansky",
   "main": "index.js",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/dbrockman/compare-property.git"
+  },
+  "bugs": {
+    "url": "http://github.com/dbrockman/compare-property/issues"
+  },
   "keywords": [
     "sort",
     "compare"

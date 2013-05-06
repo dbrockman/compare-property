@@ -1,5 +1,8 @@
 # Array sort compare util
 
+```
+npm install compare-property
+```
 
 ## exports.ascending
 
@@ -9,7 +12,6 @@ Sort in ascending order.
 [2, 1, 3].sort(ascending) // [1, 2, 3]
 ```
 
-
 ## exports.descending
 
 Sort in descending order.
@@ -17,7 +19,6 @@ Sort in descending order.
 ```
 [2, 1, 3].sort(descending) // [3, 2, 1]
 ```
-
 
 ## exports.property
 
@@ -27,7 +28,6 @@ Specify sort order as 1 (ascending) or -1 (descending), default is ascending.
 ```
 ['ab', 'a', 'abc'].sort(property('length')) // ['a', 'ab', 'abc']
 ```
-
 
 ## exports.properties
 

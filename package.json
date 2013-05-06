@@ -1,6 +1,6 @@
 {
   "name": "compare-property",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Array sort compare util",
   "author": "David Brockman Smoliansky",
   "main": "index.js",

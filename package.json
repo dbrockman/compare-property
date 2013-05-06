@@ -1,0 +1,12 @@
+{
+  "name": "compare-property",
+  "version": "0.0.1",
+  "description": "Array sort compare util",
+  "author": "David Brockman Smoliansky #dbrckmn",
+  "main": "index.js",
+  "repository": "",
+  "keywords": [
+    "sort",
+    "compare"
+  ]
+}

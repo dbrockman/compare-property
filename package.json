@@ -1,18 +1,30 @@
 {
   "name": "compare-property",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Array sort compare util",
+  "keywords": ["sort", "compare"],
   "author": "David Brockman Smoliansky",
   "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- --reporter spec --ui bdd --slow 10 --check-leaks",
+    "watch": "mocha --watch --reporter min --ui bdd --slow 10 --check-leaks",
+    "clean": "rm -rf coverage"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "should": "~2.1.0",
+    "istanbul": "~0.1.45"
+  },
   "repository": {
     "type": "git",
-    "url": "http://github.com/dbrockman/compare-property.git"
+    "url": "git://github.com/dbrockman/compare-property.git"
   },
   "bugs": {
-    "url": "http://github.com/dbrockman/compare-property/issues"
+    "url": "https://github.com/dbrockman/compare-property/issues"
   },
-  "keywords": [
-    "sort",
-    "compare"
-  ]
+  "homepage": "https://github.com/dbrockman/compare-property",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.8.0"
+  }
 }

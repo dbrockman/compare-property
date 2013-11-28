@@ -26,7 +26,7 @@ Create function that sorts on a property.
 Specify sort order as 1 (ascending) or -1 (descending), default is ascending.
 
 ```
-['ab', 'a', 'abc'].sort(property('length')) // ['a', 'ab', 'abc']
+['ab', 'a', 'abc'].sort(property('length', -1)) // ['abc', 'ab', 'a']
 ```
 
 ## exports.properties
@@ -36,4 +36,15 @@ Specify sort order as 1 (ascending) or -1 (descending), default is ascending.
 
 ```
 people.sort(properties({ age: -1, surname: 1 })) // Sort by oldest first and secondly on surname A to Z
+```
+
+## exports.compare
+
+Compare a property on two objects in specified order.
+
+```
+var ascending = 1;
+var descending = -1;
+compare({ key: 1 }, { key: 2 }, 'key', ascending); // -1
+compare({ key: 1 }, { key: 2 }, 'key', descending); // 1
 ```

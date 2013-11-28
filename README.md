@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dbrockman/compare-property.png?branch=master)](https://travis-ci.org/dbrockman/compare-property)
+
 # Array sort compare util
 
 ```

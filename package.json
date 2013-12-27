@@ -11,9 +11,9 @@
     "clean": "rm -rf coverage"
   },
   "devDependencies": {
-    "mocha": "~1.14.0",
-    "should": "~2.1.0",
-    "istanbul": "~0.1.45"
+    "mocha": "~1.16.2",
+    "should": "~2.1.1",
+    "istanbul": "~0.2.2"
   },
   "repository": {
     "type": "git",

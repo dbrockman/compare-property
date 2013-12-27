@@ -85,10 +85,39 @@ describe('property', function () {
     actual.should.eql(expected);
   });
 
-  it('should treat null and missing properties as less than existing properties', function () {
+  it('should sort null and missing properties to the end of the array', function () {
     var actual = [{ key: 'a' }, { other: 'b' }, null, { key: 'c' }, null, { other: 'd' }];
-    var expected = [null, null, { other: 'b' }, { other: 'd' }, { key: 'a' }, { key: 'c' }];
+    var expected = [{ key: 'a' }, { key: 'c' }, { other: 'b' }, { other: 'd' }, null, null];
     actual.sort(compare.property('key'));
+    actual.should.eql(expected);
+  });
+
+  it('should ignore case', function () {
+    var actual = [
+      { key: 'a' },
+      { key: 's' },
+      { key: 'D' },
+      { key: 'f' },
+      { key: 'G' }
+    ];
+    var expected = [
+      { key: 'a' },
+      { key: 'D' },
+      { key: 'f' },
+      { key: 'G' },
+      { key: 's' }
+    ];
+    var ignoreCase = true;
+    var fn = compare.property('key', 1, ignoreCase);
+    fn.should.be.a.Function;
+    actual.sort(fn);
+    actual.should.eql(expected);
+  });
+
+  it('should handle null and missing properties when ignoring case', function () {
+    var actual = [{ key: 'a' }, { other: 'b' }, null, { key: 'C' }, null, { other: 'd' }];
+    var expected = [{ key: 'a' }, { key: 'C' }, { other: 'b' }, { other: 'd' }, null, null];
+    actual.sort(compare.property('key', 1, true));
     actual.should.eql(expected);
   });
 

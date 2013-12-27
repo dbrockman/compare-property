@@ -22,7 +22,7 @@ describe('properties', function () {
     actual.should.eql(expected);
   });
 
-  it('should treat null and missing properties as less than existing properties', function () {
+  it('should sort null and missing properties to the end of the array', function () {
     var actual = [
       { a: 1, b: 1 },
       { a: 1, b: 2 },
@@ -32,12 +32,12 @@ describe('properties', function () {
       null
     ];
     var expected = [
-      null,
       { a: 1, b: 2 },
       { a: 1, b: 1 },
       { a: 2, b: 2 },
       { a: 2, b: 1 },
-      { a: 2 }
+      { a: 2 },
+      null
     ];
     var fn = compare.properties({ a: 1, b: -1 });
     actual.sort(fn);

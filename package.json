@@ -6,8 +6,8 @@
   "author": "David Brockman Smoliansky",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- --reporter spec --ui bdd --slow 10 --check-leaks",
-    "watch": "mocha --watch --reporter min --ui bdd --slow 10 --check-leaks",
+    "test": "istanbul cover _mocha -- --reporter spec --ui bdd --slow 5 --check-leaks",
+    "watch": "mocha --watch --reporter min --ui bdd --slow 5 --check-leaks",
     "clean": "rm -rf coverage"
   },
   "devDependencies": {

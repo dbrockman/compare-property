@@ -59,19 +59,21 @@ function compareProperty(property, order, ignoreCase) {
  * Ex. people.sort(properties({ age: -1, surname: 1 })) // Sort by oldest first and secondly on surname A to Z
 **/
 function compareProperties(properties, ignoreCase) {
-  var keys = Object.keys(properties),
-    length = keys.length,
-    order  = [],
-    i      = 0;
-
-  for (; i < length; i++) {
-    order[i] = properties[keys[i]];
-  }
+  var keys = Object.keys(properties);
+  properties = copy(keys, properties);
+  ignoreCase = ignoreCase === true
+    ? copy(keys)
+    : Array.isArray(ignoreCase)
+      ? copy(ignoreCase)
+      : ignoreCase
+        ? copy(Object.keys(ignoreCase), ignoreCase)
+        : {};
 
   return function (a, b) {
-    var c = 0, i = 0;
-    for (; !c && i < length; i++) {
-      c = compareObjects(a, b, keys[i], order[i], ignoreCase);
+    var c = 0, i = 0, p;
+    for (; !c && i < keys.length; i++) {
+      p = keys[i];
+      c = compareObjects(a, b, p, properties[p], ignoreCase[p]);
     }
     return c;
   };
@@ -103,4 +105,20 @@ function isValue(o) {
   }
   // not null and not undefined
   return o != null;
+}
+
+/**
+ * Copy an array of strings to a new object and set value from source object or true.
+ * @param {Array.<string>} keys Array of strings.
+ * @param {Object} src Source object.
+ * @return {Object}
+ * @private
+**/
+function copy(keys, src) {
+  var map = {}, i = 0, key;
+  for (; i < keys.length; i++) {
+    key = keys[i];
+    map[key] = src ? src[key] : true;
+  }
+  return map;
 }

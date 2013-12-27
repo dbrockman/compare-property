@@ -44,4 +44,58 @@ describe('properties', function () {
     actual.should.eql(expected);
   });
 
+  it('should ignore case on all properties if ignoreCase is true', function () {
+    var actual = [
+      { a: 'c', b: 'C' },
+      { a: 'c', b: 'd' },
+      { a: 'D', b: 'c' },
+      { a: 'd', b: 'd' }
+    ];
+    var expected = [
+      { a: 'c', b: 'd' },
+      { a: 'c', b: 'C' },
+      { a: 'd', b: 'd' },
+      { a: 'D', b: 'c' }
+    ];
+    var fn = compare.properties({ a: 1, b: -1 }, true);
+    actual.sort(fn);
+    actual.should.eql(expected);
+  });
+
+  it('should ignore case on some properties if ignoreCase is an array of property names', function () {
+    var actual = [
+      { a: 'c', b: 'C' },
+      { a: 'c', b: 'd' },
+      { a: 'D', b: 'c' },
+      { a: 'd', b: 'd' }
+    ];
+    var expected = [
+      { a: 'D', b: 'c' },
+      { a: 'c', b: 'd' },
+      { a: 'c', b: 'C' },
+      { a: 'd', b: 'd' }
+    ];
+    var fn = compare.properties({ a: 1, b: -1 }, ['b']);
+    actual.sort(fn);
+    actual.should.eql(expected);
+  });
+
+  it('should ignore case on some properties if ignoreCase is an object', function () {
+    var actual = [
+      { a: 'c', b: 'C' },
+      { a: 'c', b: 'd' },
+      { a: 'D', b: 'c' },
+      { a: 'd', b: 'd' }
+    ];
+    var expected = [
+      { a: 'D', b: 'c' },
+      { a: 'c', b: 'd' },
+      { a: 'c', b: 'C' },
+      { a: 'd', b: 'd' }
+    ];
+    var fn = compare.properties({ a: 1, b: -1 }, { b: true });
+    actual.sort(fn);
+    actual.should.eql(expected);
+  });
+
 });

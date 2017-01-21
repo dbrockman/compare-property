@@ -2,6 +2,8 @@
 
 # Array sort compare util
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dbrockman/compare-property.svg)](https://greenkeeper.io/)
+
 This module contains functions that can be used with `Array.prototype.sort`.
 
 ```
